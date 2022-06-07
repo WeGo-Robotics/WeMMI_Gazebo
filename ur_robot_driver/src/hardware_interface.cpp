@@ -93,7 +93,7 @@ bool HardwareInterface::init(ros::NodeHandle& root_nh, ros::NodeHandle& robot_hw
   // The robot's IP address.
   if (!robot_hw_nh.getParam("robot_ip", robot_ip_))
   {
-    ROS_ERROR_STREAM("Required parameter " << robot_hw_nh.resolveName("robot_ip") << " not given.");
+    ROS_ERROR_STREAM("Required parameter " << robot_hw_nh.resolveName("robot_ip_") << " not given.");
     return false;
   }
 
@@ -309,7 +309,7 @@ bool HardwareInterface::init(ros::NodeHandle& root_nh, ros::NodeHandle& robot_hw
   }
   ur_driver_->registerTrajectoryDoneCallback(
       std::bind(&HardwareInterface::passthroughTrajectoryDoneCb, this, std::placeholders::_1));
-
+  ur_driver_->setKeepaliveCount(5);
   // Send arbitrary script commands to this topic. Note: On e-Series the robot has to be in
   // remote-control mode.
   //
