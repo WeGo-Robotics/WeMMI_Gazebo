@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro" name="middle_box">
+    
+    <xacro:property name="x_length" value="0.51"/>
+    <xacro:property name="y_length" value="0.51"/>
+    <xacro:property name="z_length" value="0.405"/>
+    <xacro:property name="pi" value="3.141592"/>
+    <xacro:property name="mass" value="50"/>
+
+    <link name="box">
+        <collision>
+            <origin xyz="0 0 ${z_length/2}" rpy="0 0 0"/>
+            <geometry>
+                <box size="${x_length} ${y_length} ${z_length}"/>
+            </geometry>
+        </collision>
+
+        <visual>
+            <origin xyz="0 0 0" rpy="${pi/2} 0 ${pi/2}"/>
+            <geometry>
+                <mesh scale="0.001 0.001 0.001" filename="package://tracer_description/meshes/Mobile_Manipulator.stl"/>
+            </geometry>
+            <material name="white">
+                <color rgba="1.0 1.0 1.0 1.0"/>
+            </material>
+        </visual>
+
+        <intertial>
+            <origin xyz="0 0 ${z_length/2}" rpy="0 0 0"/>
+            <mass value="${mass}"/>
+            <inertia
+                ixx="${mass / 12.0*(y_length*y_length+z_length*z_length)}" ixy="0.0" ixz="0.0"
+                iyy="${mass / 12.0*(z_length*z_length+x_length*x_length)}" iyz="0.0"
+                izz="${mass / 12.0*(y_length*y_length+x_length*x_length)}"/>
+        </intertial>
+    </link>
+
+    <joint name="box-base_link" type="fixed">
+        <parent link="base_link"/>
+        <child link="box"/>
+        <origin xyz="0 0 0.016" rpy="0 0 0 "/>
+    </joint>
+
+</robot>

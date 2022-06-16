@@ -1,0 +1,11 @@
+<launch>
+
+  <rosparam command="load" file="$(find robot_localization)/params/dual_ekf_navsat_example.yaml" />
+
+  <node pkg="robot_localization" type="ekf_localization_node" name="ekf_se_odom" clear_params="true"/>
+
+
+   <node pkg="tf" type="static_transform_publisher" name="baseIMU" args="0.0 0 0.3 0 0 0 1 /odom /imu_link 50" /> 
+
+
+</launch>
