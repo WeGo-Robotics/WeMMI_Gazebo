@@ -18,11 +18,10 @@
     <xacro:include filename="$(find tracer_description)/urdf/fl_wheel.xacro" />
     <xacro:include filename="$(find tracer_description)/urdf/rr_wheel.xacro" />
     <xacro:include filename="$(find tracer_description)/urdf/rl_wheel.xacro" />
-    <xacro:include filename="$(find tracer_description)/urdf/box.xacro" />
-    <xacro:include filename="$(find ur_description)/urdf/ur3e.xacro"/>
-
-
-
+    <xacro:include filename="$(find mobile_manipulator_description)/urdf/box.xacro" />
+    <xacro:include filename="$(find ur_description)/urdf/ur3.xacro"/>
+ 
+    
     <!-- Variables -->
     <xacro:property name="M_PI" value="3.14159"/>
 
