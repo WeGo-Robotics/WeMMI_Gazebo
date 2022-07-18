@@ -33,20 +33,20 @@
   <rosparam file="$(arg controller_config_file)" command="load"/>
 
   <!-- Start Gazebo and load the empty world if requested to do so -->
-  <!--include file="$(find gazebo_ros)/launch/empty_world.launch" if="$(arg start_gazebo)">
+  <include file="$(find gazebo_ros)/launch/empty_world.launch" if="$(arg start_gazebo)">
     <arg name="world_name" value="$(arg gazebo_world)"/>
     <arg name="paused" value="$(arg paused)"/>
     <arg name="gui" value="$(arg gui)"/>
-  </include-->
+  </include>
 
   <!-- Spawn the model loaded earlier in the simulation just started -->
-  <!--node name="spawn_gazebo_model" pkg="gazebo_ros" type="spawn_model"
+  <node name="spawn_gazebo_model" pkg="gazebo_ros" type="spawn_model"
     args="
       -urdf
       -param $(arg robot_description_param_name)
       -model $(arg gazebo_model_name)
       -z $(arg spawn_z)"
-    output="screen" respawn="false" /-->
+    output="screen" respawn="false" />
 
   <!-- Load and start the controllers listed in the 'controllers' arg. -->
   <node name="ros_control_controller_spawner" pkg="controller_manager" type="spawner"
