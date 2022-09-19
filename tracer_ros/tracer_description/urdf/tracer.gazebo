@@ -12,9 +12,9 @@ Reference:
     <xacro:include filename="$(find tracer_description)/urdf/tracer_wheel.gazebo" />
 
     <!-- Additional definitions for simulation -->
-    <!-- <gazebo reference="base_link">
+    <gazebo reference="base_link">
         <material>Gazebo/Grey</material>
-    </gazebo> -->
+    </gazebo>
 
     <!-- Actuator configurations -->
     <xacro:tracer_wheel_transmission wheel_prefix="right" />
@@ -64,15 +64,15 @@ Reference:
             <covariance_y>0.000100</covariance_y>
             <covariance_yaw>0.010000</covariance_yaw>
         </plugin>
-    </gazebo> -->
+    </gazebo-->
 
-    <!-- <gazebo>
+    <gazebo>
         <plugin name="object_controller" filename="libgazebo_ros_planar_move.so">
             <commandTopic>cmd_vel</commandTopic>
             <odometryTopic>odom</odometryTopic>
             <odometryFrame>odom</odometryFrame>
             <odometryRate>20.0</odometryRate>
-            <robotBaseFrame>base_footprint</robotBaseFrame>
+            <robotBaseFrame>base_link</robotBaseFrame>
         </plugin>
-    </gazebo> -->
+    </gazebo>
 </robot>
