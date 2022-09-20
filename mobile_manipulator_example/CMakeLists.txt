@@ -33,4 +33,8 @@ target_link_libraries(move_tracer ${catkin_LIBRARIES})
 add_executable(move_manipulator ./src/move_manipulator.cpp)
 target_link_libraries(move_manipulator ${catkin_LIBRARIES})
 
- 
+add_executable(move_joint_manipulator ./src/move_joint_manipulator.cpp)
+target_link_libraries(move_joint_manipulator ${catkin_LIBRARIES})
+
+add_executable(move_ee_manipulator ./src/move_ee_manipulator.cpp)
+target_link_libraries(move_ee_manipulator ${catkin_LIBRARIES})
