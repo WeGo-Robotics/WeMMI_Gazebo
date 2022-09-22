@@ -76,3 +76,9 @@ TebLocalPlannerROS:
  obstacle_heading_threshold: 0.45
  visualize_hc_graph: False
 
+BaseGlobalPlanner:
+  allow_unknown: false
+  use_dijkstra: false #Use A* instead
+  use_quadratic: true
+  use_grid_path: false
+  old_navfn_behavior: false
